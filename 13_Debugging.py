@@ -29,14 +29,16 @@ else:
 #     print("Not leap year")
 
 year = int(input("Which year do you want to check?"))
-if year%4 == 0:
-    print("Leap Year.")
-elif year % 100 == 0 and year % 400 == 0:
-    print("Leap Year.")
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print("Leap Year.")
+        else:
+            print("Not Leap Year.")
+    else:
+        print("Leap Year.")
 else:
     print("Not Leap Year.")
-
-
 # for number in range(1,101):
 #     if number%3 == 0 or number%5==0:
 #         print("FizzBuzz")
