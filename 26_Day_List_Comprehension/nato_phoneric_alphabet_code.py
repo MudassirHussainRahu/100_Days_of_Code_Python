@@ -10,15 +10,26 @@ nato_phoneric_alphabets_dict = {
 
 # print(nato_phoneric_alphabets_dict)
 
+
 while True:
+    wrong_input = False
     word = input("Enter a word or exit:")
     if word == "exit":
         print("Exiting!!!!!")
         break
-    
+
     phonetic_code = []
     for letter in word:
-        code = nato_phoneric_alphabets_dict[letter.upper()]
-        phonetic_code.append(code)
+        try:
+            code = nato_phoneric_alphabets_dict[letter.upper()]
+        except KeyError:
+            print("Sorry, Only letters in the alphabet please.")
+            wrong_input = True
+            break
+        else:
+            phonetic_code.append(code)
+
+    if wrong_input:
+        continue
 
     print(phonetic_code)
